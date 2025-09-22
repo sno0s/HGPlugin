@@ -1,0 +1,9 @@
+HGconfigs:
+  mushroom-density: 20
+  damage-multiplier:
+  soup-renegeration:
+
+Commands:
+  github:
+    permission: false
+    message: "https://github.com/sno0s"

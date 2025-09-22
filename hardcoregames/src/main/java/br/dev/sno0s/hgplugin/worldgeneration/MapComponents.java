@@ -1,4 +1,4 @@
-package br.dev.sno0s.hgplugin.structures;
+package br.dev.sno0s.hgplugin.worldgeneration;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-public class MainMap implements Listener {
+public class MapComponents implements Listener {
 
     public static void gerarParede(JavaPlugin plugin, World world, int tamanho) {
         int half = tamanho / 2;
@@ -18,6 +18,7 @@ public class MainMap implements Listener {
         final int step = 10;
 
         Bukkit.getScheduler().runTaskTimer(plugin, task -> {
+            Bukkit.getLogger().info("[HardcoreGames] Construindo parede!");
             int placed = 0;
 
             while (x[0] <= half && placed < step) {

@@ -1,18 +1,21 @@
-package br.dev.sno0s.hgplugin.structures;
+package br.dev.sno0s.hgplugin.worldgeneration;
 
 import org.bukkit.block.Biome;
 import org.bukkit.generator.BiomeProvider;
 import org.bukkit.generator.WorldInfo;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class HGWorldProvider extends BiomeProvider {
 
+    // biomas que eu quero que existam
     private static final List<Biome> ALLOWED = List.of(
-            Biome.PLAINS
+            Biome.PLAINS,
+            Biome.BIRCH_FOREST,
+            Biome.FOREST,
+            Biome.DARK_FOREST
     );
 
     @NotNull
