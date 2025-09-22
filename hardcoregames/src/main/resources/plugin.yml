@@ -1,0 +1,8 @@
+name: HardcoreGamesPlugin
+version: '1.0.0'
+main: br.dev.sno0s.hgplugin.Hgplugin
+api-version: '1.21'
+
+commands:
+  createhg:
+    description: "recria o mundo para fazer os testes"
