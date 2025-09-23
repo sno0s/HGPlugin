@@ -18,12 +18,15 @@ jobs:
           distribution: 'temurin'
 
       - name: Grant execute permission for Gradlew
+        working-directory: hardcoregames
         run: chmod +x gradlew
 
       - name: Build with Gradle
+        working-directory: hardcoregames
         run: ./gradlew build
 
       - name: Run tests
+        working-directory: hardcoregames
         run: ./gradlew test
 
   upload:
