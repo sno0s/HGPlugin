@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/HGPlugin.iml" filepath="$PROJECT_DIR$/.idea/HGPlugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hardcoregames.main.iml" filepath="$PROJECT_DIR$/.idea/modules/hardcoregames.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hardcoregames.test.iml" filepath="$PROJECT_DIR$/.idea/modules/hardcoregames.test.iml" />
     </modules>
   </component>
 </project>
