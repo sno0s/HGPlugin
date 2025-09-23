@@ -1,6 +1,7 @@
 package br.dev.sno0s.hgplugin;
 
 import br.dev.sno0s.hgplugin.listeners.PlayerJoinListener;
+import br.dev.sno0s.hgplugin.listeners.SoupListener;
 import br.dev.sno0s.hgplugin.worldgeneration.WorldGeneration;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -27,6 +28,7 @@ public final class Hgplugin extends JavaPlugin {
         WorldGeneration.execute(this);
 
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        getServer().getPluginManager().registerEvents(new SoupListener(), this);
     }
 
     public static Hgplugin getInstance() {

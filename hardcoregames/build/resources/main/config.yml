@@ -1,7 +1,13 @@
 HGconfigs:
-  mushroom-density: 20
+  mushroom-density: 40 #Integer
   damage-multiplier:
-  soup-renegeration:
+  soup-heal: 6.0 #Double
+  soup-food: 7 #Double
+  Biomes:
+    birch: true
+    plains: true
+    forest: true
+    dark-forest: true
 
 Commands:
   github:

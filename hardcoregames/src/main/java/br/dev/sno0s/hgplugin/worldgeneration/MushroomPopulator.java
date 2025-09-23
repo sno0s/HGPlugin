@@ -25,7 +25,6 @@ public class MushroomPopulator extends BlockPopulator {
 
     @Override
     public void populate(World world, Random random, Chunk chunk) {
-        Bukkit.getLogger().info("[HardcoreGames] Espalhando cogumelos!");
 
         // número de tentativas por chunk (ajuste de acordo com mushroom-density na config.yml)
         int tries = Hgplugin.getPluginConfig().getInt("HGconfigs.mushroom-density") + random.nextInt(11); // x a x+10 tentativas

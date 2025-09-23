@@ -18,7 +18,6 @@ public class MapComponents implements Listener {
         final int step = 10;
 
         Bukkit.getScheduler().runTaskTimer(plugin, task -> {
-            Bukkit.getLogger().info("[HardcoreGames] Construindo parede!");
             int placed = 0;
 
             while (x[0] <= half && placed < step) {
