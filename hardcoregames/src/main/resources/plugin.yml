@@ -4,5 +4,7 @@ main: br.dev.sno0s.hgplugin.Hgplugin
 api-version: '1.21'
 
 commands:
-  createhg:
-    description: "recria o mundo para fazer os testes"
+  startmatch:
+    description: "Inicia jogo mesmo que não contenha nenhum jogador."
+    usage: /startmatch
+    permission: hg.plugin.startmatch

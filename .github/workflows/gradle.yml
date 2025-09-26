@@ -48,5 +48,4 @@ jobs:
 
         with:
           name: hgplugin-jar
-          run: ./gradlew jar
           path: hardcoregames/build/libs/*.jar

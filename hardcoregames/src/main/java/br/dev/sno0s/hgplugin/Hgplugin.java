@@ -1,5 +1,7 @@
 package br.dev.sno0s.hgplugin;
 
+import br.dev.sno0s.hgplugin.listeners.MatchCountDown;
+import br.dev.sno0s.hgplugin.listeners.OnDrop;
 import br.dev.sno0s.hgplugin.listeners.PlayerJoinListener;
 import br.dev.sno0s.hgplugin.listeners.SoupListener;
 import br.dev.sno0s.hgplugin.worldgeneration.WorldGeneration;
@@ -7,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Hgplugin extends JavaPlugin {
@@ -17,18 +20,25 @@ public final class Hgplugin extends JavaPlugin {
     @Override
     public void onEnable()
     {
+        // plugin start message
         Bukkit.getLogger().info("[HardcoreGames] Plugin iniciado!");
         instance = this;
 
-        // puxando a config.yml
+        // get config.yml
         saveDefaultConfig();
         config = getConfig();
 
-        // executando a geração do mundo
+        // run world generation
         WorldGeneration.execute(this);
 
+        // listeners
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new SoupListener(), this);
+        getServer().getPluginManager().registerEvents(new OnDrop(), this);
+        getServer().getPluginManager().registerEvents(new MatchCountDown(), this);
+
+        // commands
+        getCommand("startmatch").setExecutor(new br.dev.sno0s.hgplugin.commands.StartMatchCommand());
     }
 
     public static Hgplugin getInstance() {
@@ -38,7 +48,6 @@ public final class Hgplugin extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
-
         return true;
     }
 
