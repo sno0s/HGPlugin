@@ -1,4 +1,4 @@
-package br.dev.sno0s.hgplugin.modules;
+package br.dev.sno0s.hgplugin.utils;
 
 import br.dev.sno0s.hgplugin.Hgplugin;
 import net.kyori.adventure.text.Component;

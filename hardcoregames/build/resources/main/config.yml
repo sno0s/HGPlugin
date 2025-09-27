@@ -1,4 +1,5 @@
 HGconfigs:
+  server-name: "§f[§cHardcore§fGames]"
   mushroom-density: 40 #Integer
   damage-multiplier:
   soup-heal: 6.0 #Double

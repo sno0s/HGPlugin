@@ -1,7 +1,8 @@
 package br.dev.sno0s.hgplugin.commands;
 
-import br.dev.sno0s.hgplugin.modules.StartMatch;
-import net.kyori.adventure.text.Component;
+import br.dev.sno0s.hgplugin.Hgplugin;
+import br.dev.sno0s.hgplugin.utils.StartMatch;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,21 +12,22 @@ public class StartMatchCommand implements CommandExecutor {
 
     /*
         CommandExecutor to force the match start
+        author: sno0s
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // verify if sender is a player
+        // verify if sender is not a player, so is the console
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Iniciando a partida");
-            StartMatch.execute();
+            Bukkit.getLogger().info(Hgplugin.serverName + " Console forçou início da partida.");
+            StartMatch.execute(); // starting match
             return true;
         }
 
-        Player player = (Player) sender;
+        Player player = (Player) sender; // getting player isntance
 
-        // execute match start and say it to the console
-        player.sendMessage(Component.text("§aVocê iniciou a partida!"));
-        sender.sendMessage(player.getName() + " iniciou a partida.");
+        // execute match start and say it to the player
+        sender.sendMessage(Hgplugin.serverName + " §eVocê iniciou a partida."); // message to player
+        Bukkit.getLogger().info(player.getName() + " iniciou a partida."); // message to console
         StartMatch.execute();
 
         return true;

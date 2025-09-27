@@ -1,9 +1,11 @@
 package br.dev.sno0s.hgplugin.listeners;
 
 import br.dev.sno0s.hgplugin.Hgplugin;
-import br.dev.sno0s.hgplugin.modules.StartMatch;
+import br.dev.sno0s.hgplugin.utils.StartMatch;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +15,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class MatchCountDown implements Listener {
 
@@ -25,30 +28,33 @@ public class MatchCountDown implements Listener {
     {
         Collection<? extends Player> jogadores = Bukkit.getOnlinePlayers(); // online players at the moment
         int numPlayers = jogadores.size(); // number of players
-        Bukkit.broadcast(Component.text("Faltam " + (10 - numPlayers) + " jogadores para começar")); // players remaining to start
+        Bukkit.broadcastMessage(Hgplugin.serverName + " §eFaltam §c" + (10 - numPlayers) + " §ejogadores para começar!");
 
-        // if we have 10 or more players, match will start
+
         if (numPlayers >= 10) {
             @NotNull Plugin plugin = Hgplugin.getInstance();
-
+            Bukkit.broadcastMessage(Hgplugin.serverName + " §eIniciando contagem para iniciar a partida");
             // match start countdown
             new BukkitRunnable() {
                 int countdown = 30; // initial time in seconds
-
                 @Override
                 public void run() {
 
-                    if (countdown == 30 || countdown == 15 || countdown == 5 || countdown == 4 || countdown == 3 || countdown == 2 || countdown == 1) {
-                        Bukkit.broadcast(Component.text("§eFaltam " + countdown + " segundos para o início da partida!"));
+                    if (Set.of(30, 15, 5, 4, 3, 2, 1).contains(countdown)) {
+                        Bukkit.broadcastMessage(Hgplugin.serverName + " §ePartida começando em " + countdown + " §esegundos");
                     }
 
                     if (countdown == 0) {
-                        Bukkit.broadcast(Component.text("§aA partida começou!"));
+                        Bukkit.broadcastMessage(Hgplugin.serverName + " §aA partida começou!");
+
+                        for (Player p : Bukkit.getOnlinePlayers()) {
+                            p.playSound(p.getLocation(), Sound.ENTITY_ENDER_DRAGON_DEATH, 0.5f, 0.8f);
+                        }
+
                         StartMatch.execute(); // calling method to start match
                         cancel();
                         return;
                     }
-                    Bukkit.broadcast(Component.text("§ePartida começando em " + countdown + " segundos..."));
                     countdown--;
                 }
             }.runTaskTimer(plugin, 0L, 20L); // 20 ticks = 1 segundo

@@ -16,6 +16,7 @@ public final class Hgplugin extends JavaPlugin {
 
     private static Hgplugin instance;
     private static FileConfiguration config;
+    public static String serverName = config.getString("HGconfigs.server-name");
 
     @Override
     public void onEnable()
