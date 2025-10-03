@@ -1,0 +1,16 @@
+HGconfigs:
+  server-name: "§f[§cHardcore§fGames]"
+  mushroom-density: 40 #Integer
+  damage-multiplier:
+  soup-heal: 6.0 #Double
+  soup-food: 7 #Double
+  Biomes:
+    birch: true
+    plains: true
+    forest: true
+    dark-forest: true
+
+Commands:
+  github:
+    permission: false
+    message: "https://github.com/sno0s"

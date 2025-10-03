@@ -16,7 +16,6 @@ public final class Hgplugin extends JavaPlugin {
 
     private static Hgplugin instance;
     private static FileConfiguration config;
-    public static String serverName = config.getString("HGconfigs.server-name");
 
     @Override
     public void onEnable()
@@ -59,10 +58,13 @@ public final class Hgplugin extends JavaPlugin {
         getLogger().info("Plugin finalizado!");
     }
 
-    //retorna a config do plugin
+    // returns plugin config
     public static FileConfiguration getPluginConfig(){
         return config;
     }
 
-
+    // TODO: find a better class for this
+    public static String getServerName() {
+        return config.getString("HGconfigs.server-name");
+    }
 }

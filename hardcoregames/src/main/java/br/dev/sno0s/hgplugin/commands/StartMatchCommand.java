@@ -8,6 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static br.dev.sno0s.hgplugin.Hgplugin.getServerName;
+
 public class StartMatchCommand implements CommandExecutor {
 
     /*
@@ -18,7 +20,7 @@ public class StartMatchCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // verify if sender is not a player, so is the console
         if (!(sender instanceof Player)) {
-            Bukkit.getLogger().info(Hgplugin.serverName + " Console forçou início da partida.");
+            Bukkit.getLogger().info(getServerName() + " Console forçou início da partida.");
             StartMatch.execute(); // starting match
             return true;
         }
@@ -26,7 +28,7 @@ public class StartMatchCommand implements CommandExecutor {
         Player player = (Player) sender; // getting player isntance
 
         // execute match start and say it to the player
-        sender.sendMessage(Hgplugin.serverName + " §eVocê iniciou a partida."); // message to player
+        sender.sendMessage(getServerName() + " §eVocê iniciou a partida."); // message to player
         Bukkit.getLogger().info(player.getName() + " iniciou a partida."); // message to console
         StartMatch.execute();
 

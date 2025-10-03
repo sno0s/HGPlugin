@@ -13,6 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.Location;
 
+import static br.dev.sno0s.hgplugin.Hgplugin.getServerName;
+
 public class PlayerJoinListener implements Listener {
 
     /*
@@ -33,7 +35,7 @@ public class PlayerJoinListener implements Listener {
             Location spawn = hgWorld.getSpawnLocation();
 
             // welcome message
-            Bukkit.broadcastMessage(Hgplugin.serverName + " §f" + player.getName() + " §eEntrou no servidor!");
+            Bukkit.broadcastMessage(getServerName() + " §f" + player.getName() + " §eEntrou no servidor!");
 
             //basic configs
             player.teleport(spawn);
